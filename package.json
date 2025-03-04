@@ -37,5 +37,8 @@
       "prettier --write --ignore-unknown"
     ],
     "src/**/*.{html,css,json}": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "flag-icons": "^7.3.2"
   }
 }

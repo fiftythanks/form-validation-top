@@ -1,0 +1,119 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* My own rules */
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  background-color: #edc4b3;
+  color: black;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  background-color: #e6b8a2;
+  padding: 25px 50px 100px;
+  border: 5px solid #774936;
+  border-radius: 10px;
+}
+.postal-country {
+  position: relative;
+}
+.countries-wrapper {
+  position: absolute;
+  top: calc((100% - 21.325px) / 2);
+  right: calc(-134px - 10px - (2.4px * 2) - 5px);
+  &:has(ul.hidden) {
+    right: calc(-22px - 5px - 8px);
+  }
+}
+.select-country {
+  width: 22px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:not(:has(+ ul.hidden)) {
+    margin-left: 8px;
+  }
+}
+ul.country-list {
+  padding: 0;
+  list-style-type: none;
+  background-color: #e6b8a2;
+  border: 3px solid #774936;
+}
+li.country {
+  cursor: pointer;
+  padding: 0 5px;
+  outline: none;
+  &:is(:focus, :hover) {
+    background-color: #774936;
+    color: white;
+  }
+  & > .fi {
+    width: 22px;
+  }
+}

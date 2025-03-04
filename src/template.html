@@ -5,5 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
   </head>
-  <body></body>
+  <body>
+    <form novalidate>
+      <label for="email">Email <span class="error"></span></label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        placeholder="example@example.com"
+      />
+      <label for="postal">Postal code <span class="error"></span></label>
+      <div class="postal-country">
+        <input type="text" name="postal" id="postal" required />
+        <div class="countries-wrapper">
+          <button type="button" class="select-country" selected="ru">
+            <span class="fi fi-ru"></span>
+          </button>
+          <ul class="country-list hidden" style="display: none">
+            <li class="country" tabindex="0" name="ru">
+              <span class="fi fi-ru"></span>
+              <span class="country-name">Russia</span>
+            </li>
+            <li class="country" tabindex="0" name="ua">
+              <span class="fi fi-ua"></span>
+              <span class="country-name">Ukraine</span>
+            </li>
+            <li class="country" tabindex="0" name="by">
+              <span class="fi fi-by"></span>
+              <span class="country-name">Belarus</span>
+            </li>
+            <li class="country" tabindex="0" name="de">
+              <span class="fi fi-de"></span>
+              <span class="country-name">Germany</span>
+            </li>
+            <li class="country" tabindex="0" name="fr">
+              <span class="fi fi-fr"></span>
+              <span class="country-name">France</span>
+            </li>
+            <li class="country" tabindex="0" name="gb">
+              <span class="fi fi-gb"></span>
+              <span class="country-name">United Kingdom</span>
+            </li>
+            <li class="country" tabindex="0" name="us">
+              <span class="fi fi-us"></span>
+              <span class="country-name">United States</span>
+            </li>
+            <li class="country" tabindex="0" name="cn">
+              <span class="fi fi-cn"></span>
+              <span class="country-name">China</span>
+            </li>
+            <li class="country" tabindex="0" name="jp">
+              <span class="fi fi-jp"></span>
+              <span class="country-name">Japan</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <label for="password">Password <span class="error"></span></label>
+      <input type="password" name="password" id="password" required />
+      <label for="confirm-pwd"
+        >Confirm password <span class="error"></span
+      ></label>
+      <input type="password" name="confirm-pwd" id="confirm-pwd" required />
+    </form>
+  </body>
 </html>
