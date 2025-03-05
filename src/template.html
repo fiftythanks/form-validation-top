@@ -7,17 +7,25 @@
   </head>
   <body>
     <form novalidate>
-      <label for="email">Email <span class="error"></span></label>
+      <label for="email">Email* <span class="error"></span></label>
       <input
         type="email"
         name="email"
         id="email"
         required
         placeholder="example@example.com"
+        pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$"
       />
-      <label for="postal">Postal code <span class="error"></span></label>
+      <label for="postal">Postcode* <span class="error"></span></label>
       <div class="postal-country">
-        <input type="text" name="postal" id="postal" required />
+        <input
+          type="text"
+          name="postal"
+          id="postal"
+          required
+          pattern="[0-9]{6}"
+          placeholder="NNNNNN"
+        />
         <div class="countries-wrapper">
           <button type="button" class="select-country" selected="ru">
             <span class="fi fi-ru"></span>
@@ -47,10 +55,6 @@
               <span class="fi fi-gb"></span>
               <span class="country-name">United Kingdom</span>
             </li>
-            <li class="country" tabindex="0" name="us">
-              <span class="fi fi-us"></span>
-              <span class="country-name">United States</span>
-            </li>
             <li class="country" tabindex="0" name="cn">
               <span class="fi fi-cn"></span>
               <span class="country-name">China</span>
@@ -62,12 +66,22 @@
           </ul>
         </div>
       </div>
-      <label for="password">Password <span class="error"></span></label>
-      <input type="password" name="password" id="password" required />
-      <label for="confirm-pwd"
-        >Confirm password <span class="error"></span
-      ></label>
+      <label for="password">Password* <span class="error"></span></label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        required
+        pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){1,}$"
+        minlength="8"
+        maxlength="16"
+      />
+      <label for="confirm-pwd">Confirm* <span class="error"></span></label>
       <input type="password" name="confirm-pwd" id="confirm-pwd" required />
+      <div class="buttons">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </body>
 </html>

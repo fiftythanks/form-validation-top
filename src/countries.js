@@ -35,8 +35,47 @@ export default function selectMenuBtnAndMenu(
 
   Array.from(menu.children).forEach((item) => {
     item.addEventListener('click', (e) => {
-      menuBtn.setAttribute('selected', item.getAttribute('name'));
-      menuBtn.innerHTML = `<span class="fi fi-${item.getAttribute('name')}"></span>`;
+      const country = item.getAttribute('name');
+      menuBtn.setAttribute('selected', country);
+      menuBtn.innerHTML = `<span class="fi fi-${country}"></span>`;
+      const postal = document.querySelector('#postal');
+      switch (country) {
+        case 'ru':
+          postal.pattern = '[0-9]{6}';
+          postal.placeholder = 'NNNNNN';
+          break;
+        case 'ua':
+          postal.pattern = '[0-9]{5}';
+          postal.placeholder = 'NNNNN';
+          break;
+        case 'by':
+          postal.pattern = '[0-9]{6}';
+          postal.placeholder = 'NNNNNN';
+          break;
+        case 'de':
+          postal.pattern = '[0-9]{5}';
+          postal.placeholder = 'NNNNN';
+          break;
+        case 'fr':
+          postal.pattern = '[0-9]{5}';
+          postal.placeholder = 'NNNNN';
+          break;
+        case 'gb':
+          postal.pattern =
+            '([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\\s?[0-9][A-Za-z]{2})';
+          postal.placeholder = 'A[A]N[A/N]';
+          break;
+        case 'cn':
+          postal.pattern = '[0-9]{6}';
+          postal.placeholder = 'NNNNNN';
+          break;
+        case 'jp':
+          postal.pattern = '[0-9]{3}-[0-9]{4}';
+          postal.placeholder = 'NNN-NNNN';
+          break;
+        default:
+        // do nothing
+      }
       toggleMenu(e);
     });
   });
